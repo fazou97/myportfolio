@@ -1,0 +1,204 @@
+*{
+
+box-sizing: border-box;
+
+}
+
+html{
+
+scroll-behavior: smooth;
+
+}
+
+body{
+
+    background-color: #222;
+    font-family: arial, sans-serif;
+    color: white;
+
+}
+
+header{
+
+background-color: purple;
+height: 100px;
+border-radius: 8px;
+justify-content: center;
+display: flex;
+text-align: center;
+align-items: center;
+
+
+}
+
+nav{
+
+display: flex;
+justify-content: center;
+align-items: center;
+height: 50px;
+gap: 30px;
+margin:20px 0;
+}
+
+nav a{
+
+text-decoration: none;
+color: white;
+transition:0.3s;
+display: inline;
+
+
+
+}
+
+nav a:hover{
+
+color: red;
+transform: translateY(-2px);
+
+
+}
+
+nav a:focus{
+
+outline: 2px solid red;
+
+}
+
+main{
+
+display: flex;
+gap: 30px;
+justify-content: center;
+flex-wrap: wrap;
+
+
+}
+
+section{
+
+background-color: white;
+color: black;
+padding: 20px;
+border-radius: 8px;
+
+box-shadow: 0 4px 15px red;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+
+}
+
+#accueil{
+
+    width: 300px;
+    max-width: 400px;
+    padding: 20px;
+}
+
+#accueil p{
+
+line-height: 1.6;
+margin: 10px 0;
+
+}
+
+#projets{
+    width: 100%;
+    width: 800px;
+
+}
+
+.projets-container{
+
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.projet-card{
+
+
+width: 100%;    
+max-width: 350px;
+margin: 0 auto;
+padding: 20px;
+text-align: center;
+transition: 0.3s;
+box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+border-radius: 8px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+
+}
+
+.projet-card:hover{
+
+ transform: scale(1.03);
+
+}
+
+.projet-card img{
+
+width: 100%;
+max-width: 300px;
+display: block;
+margin: 0 auto;
+border-radius: 8px;
+
+}
+
+.projet-lien{
+
+text-decoration: none;
+padding:10px 15px ;
+background-color: purple;
+color: white;
+border-radius: 8px ;
+transition: 0.3s;
+display: inline-block;
+width: fit-content;
+
+}
+
+.projet-lien:hover{
+
+    background-color: darkviolet;
+    transform: translateY(-3px);
+   
+}
+
+.projet-lien:focus{
+
+    outline: 2px solid purple;
+}
+
+.projet-lien:active{
+
+transform: scale(0.97);
+
+}
+
+footer{
+
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+@media (max-width:600px){
+
+.projet-card img {
+
+max-width: 250px;
+
+}
+
+}
