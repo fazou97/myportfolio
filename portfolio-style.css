@@ -151,7 +151,9 @@ width: 100%;
 max-width: 300px;
 display: block;
 margin: 0 auto;
+object-fit: contain;
 border-radius: 8px;
+height: 180px; /* obligatoire pour que toutes les images soient meme taille */
 
 }
 
