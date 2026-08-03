@@ -228,7 +228,7 @@ box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 border-radius: 8px;
 display: flex;
 flex-direction: column;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 
 
@@ -254,6 +254,8 @@ height: 180px; /* obligatoire pour que toutes les images soient meme taille */
 
 .projet-lien{
 
+
+margin-top: auto;    
 text-decoration: none;
 padding:10px 15px ;
 background-color: #3282b8;
