@@ -15,6 +15,7 @@ body{
     background:linear-gradient(180deg,#1a1a2e 0%, #16213e 100%);
     font-family: "Poppins", sans-serif;
     color: white;
+    margin: 0;
 
 }
 
@@ -37,7 +38,7 @@ header{
 
 background-color: #0f4c75;
 height: 100px;
-border-radius: 8px;
+
 justify-content: center;
 display: flex;
 text-align: center;
@@ -83,7 +84,7 @@ outline: 2px solid #bbe1fa;
 
 #hero{
 
-   padding: 60px 20px;
+  
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -148,7 +149,7 @@ section{
 background-color: white;
 color: black;
 padding: 20px;
-border-radius: 8px;
+
 
 box-shadow: 0 4px 15px rgba(15, 76, 117, 0.4);
 border: 1px solid rgba(50, 130, 184, 0.2);
@@ -158,6 +159,13 @@ align-items: center;
 justify-content: center;
 
 }
+
+#accueil,
+#competences,
+#projets{
+    border-radius: 8px;
+}
+
 
 #accueil{
 
@@ -213,6 +221,7 @@ border-radius: 8px;
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
+    border-radius: 8px;
 }
 
 .projet-card{
