@@ -63,6 +63,7 @@ text-decoration: none;
 color: white;
 transition:0.3s;
 display: inline;
+position: relative;
 
 
 
@@ -74,7 +75,30 @@ color: #bbe1fa;
 transform: translateY(-2px);
 
 
+
 }
+
+nav a::after{
+
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    height: 2px;
+    width: 0;
+    background-color:#3282b8;
+    transition: width 0.5s;
+
+
+
+}
+
+nav a:hover::after{
+
+    width: 100%;
+}
+
+
 
 nav a:focus{
 
@@ -120,7 +144,7 @@ outline: 2px solid #bbe1fa;
     color: #0f4c75;
     text-decoration: none;
     padding: 14px 30px;
-    border-radius: 8px;
+    
     font-weight: 600;
     transition: 0.3s;
 }
@@ -269,7 +293,8 @@ text-decoration: none;
 padding:10px 15px ;
 background-color: #3282b8;
 color: white;
-border-radius: 8px ;
+border-bottom: 1px solid #3282b8;
+border: none;
 transition: 0.3s;
 display: inline-block;
 width: fit-content;
