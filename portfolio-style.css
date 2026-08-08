@@ -1,7 +1,37 @@
+
 *{
 
 box-sizing: border-box;
 
+}
+
+:root {
+    --bleu-fonce-1: #1a1a2e;
+    --bleu-fonce-2: #16213e;
+    --bleu-header: #0f4c75;
+    --bleu-moyen: #3282b8;
+    --bleu-clair: #bbe1fa;
+}
+
+@keyframes degrade-anime {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes rotation-bordure {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 html{
@@ -12,7 +42,8 @@ scroll-behavior: smooth;
 
 body{
 
-    background:linear-gradient(180deg,#1a1a2e 0%, #16213e 100%);
+    background: linear-gradient(180deg, var(--bleu-fonce-1) 0%, var(--bleu-fonce-2) 100%);
+    
     font-family: "Poppins", sans-serif;
     color: white;
     margin: 0;
@@ -36,9 +67,9 @@ font-size: 26px;
 
 header{
 
-background-color: #0f4c75;
+background-color: var(--bleu-header);
 height: 100px;
-
+gap: 20px;
 justify-content: center;
 display: flex;
 text-align: center;
@@ -71,7 +102,7 @@ position: relative;
 
 nav a:hover{
 
-color: #bbe1fa;
+color: var(--bleu-clair);
 transform: translateY(-2px);
 
 
@@ -86,7 +117,7 @@ nav a::after{
     bottom: -6px;
     height: 2px;
     width: 0;
-    background-color:#3282b8;
+    background-color: var(--bleu-moyen);
     transition: width 0.5s;
 
 
@@ -102,7 +133,7 @@ nav a:hover::after{
 
 nav a:focus{
 
-outline: 2px solid #bbe1fa;
+outline: 2px solid var(--bleu-clair);
 
 }
 
@@ -110,12 +141,19 @@ outline: 2px solid #bbe1fa;
 
   
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: space-between;
+    text-align: left;
     padding: 40px 20px; 
-     background: linear-gradient(135deg, #0f4c75 0%, #3282b8 100%);
+    background: linear-gradient(120deg, var(--bleu-header), var(--bleu-moyen), var(--bleu-clair), var(--bleu-moyen), var(--bleu-header));
+    background-size: 300% 300%;
+    animation: degrade-anime 10s ease infinite;
+}
+
+.hero-texte{
+
+    max-width: 500px;
 }
 
 #hero h1{
@@ -127,7 +165,7 @@ outline: 2px solid #bbe1fa;
 
 .tagline{
     font-size: 22px;
-    color: #bbe1fa;
+    color:var(--bleu-clair);
     font-weight: 600;
     margin-bottom: 5px;
 }
@@ -141,20 +179,46 @@ outline: 2px solid #bbe1fa;
 .cta{
 
     background-color: white; 
-    color: #0f4c75;
+    color:var(--bleu-moyen);
     text-decoration: none;
     padding: 14px 30px;
-    
+    border-radius: 8px;
     font-weight: 600;
     transition: 0.3s;
 }
 
 .cta:hover{
-    background-color: #bbe1fa;
+    background-color:var(--bleu-clair);
     transform: translateY(-3px);
 }
 
+.hero-visuel {
+    position: relative; /* nécessaire pour que ::before (positionné en absolute) se place par rapport à CE bloc, pas par rapport à toute la page */
+    width: 220px; /* largeur fixe de la zone qui contient le symbole et son halo */
+    height: 220px; /* hauteur fixe, carrée, pour que le halo rond soit bien proportionné */
+    display: flex; /* active flexbox pour centrer facilement le symbole à l'intérieur */
+    align-items: center; /* centre le symbole verticalement dans la boîte */
+    justify-content: center; /* centre le symbole horizontalement dans la boîte */
+}
 
+.hero-visuel::before {
+    content: ""; /* obligatoire pour qu'un pseudo-élément (::before) s'affiche, même vide */
+    position: absolute; /* sort ce halo du flux normal, pour le superposer au symbole plutôt que le pousser à côté */
+    width: 180px; /* taille du cercle flouté, légèrement plus petit que la boîte parente */
+    height: 180px;
+    background: var(--bleu-clair); /* couleur du halo, réutilise la variable déjà définie */
+    border-radius: 50%; /* transforme le carré 180x180 en cercle parfait */
+    filter: blur(40px); /* floute fortement le cercle, pour un effet lumineux diffus plutôt qu'un cercle net */
+    opacity: 0.6; /* rend le halo semi-transparent, moins agressif visuellement */
+}
+
+.code-symbole {
+    position: relative; /* nécessaire pour que z-index fonctionne (z-index n'agit que sur les éléments positionnés) */
+    font-size: 90px; /* grande taille pour que le symbole </> domine visuellement */
+    font-weight: 700; /* épaisseur grasse, plus lisible et impactant à cette taille */
+    color: white; /* contraste avec le fond bleu du hero */
+     z-index: 1;/* place le texte AU-DESSUS du halo flouté (qui est en position absolute, donc empilé par défaut) */
+}
 
 main{
 
@@ -219,7 +283,7 @@ font-size: 16px;
 
 .badge{
 
-background-color: #3282b8;
+background-color:var(--bleu-moyen) ;
 color: white;
 padding: 8px 16px;
 font-size: 14px;
@@ -237,7 +301,10 @@ border-radius: 8px;
     justify-content: space-between;
 }
 
+#projets h2{
 
+    margin-bottom: 45px;
+}
 
 .projets-container{
 
@@ -250,14 +317,14 @@ border-radius: 8px;
 
 .projet-card{
 
-
 width: 100%;    
 max-width: 350px;
 margin: 0 auto;
 padding: 20px;
 text-align: center;
 transition: 0.3s;
-box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+box-shadow: 0 0 45px rgba(50, 130, 184, 0.6);
+border: 1px solid var(--bleu-moyen);
 border-radius: 8px;
 display: flex;
 flex-direction: column;
@@ -270,8 +337,11 @@ align-items: center;
 .projet-card:hover{
 
  transform: scale(1.03);
+ box-shadow: 0 0 45px rgba(50, 130, 184, 0.85);
 
 }
+
+
 
 .projet-card img{
 
@@ -291,10 +361,10 @@ height: 180px; /* obligatoire pour que toutes les images soient meme taille */
 margin-top: auto;    
 text-decoration: none;
 padding:10px 15px ;
-background-color: #3282b8;
+background-color:var(--bleu-moyen) ;
 color: white;
-border-bottom: 1px solid #3282b8;
-border: none;
+border-bottom: 1px solid var(--bleu-moyen);
+border-radius: 8px;
 transition: 0.3s;
 display: inline-block;
 width: fit-content;
@@ -303,14 +373,14 @@ width: fit-content;
 
 .projet-lien:hover{
 
-    background-color: #0f4c75;
+    background-color:var(--bleu-header);
     transform: translateY(-3px);
    
 }
 
 .projet-lien:focus{
 
-    outline: 2px solid #3282b8;
+    outline: 2px solid var(--bleu-moyen);
 }
 
 .projet-lien:active{
@@ -328,16 +398,16 @@ footer{
 
 .lien-github{
 
-color:#bbe1fa;
+color:var(--bleu-clair);
 text-decoration: none;
 display: inline-block;
 margin-top: 10px;
-transition: 0.3;
+transition: 0.3s;
 
 }
 
 .lien-github:hover{
-    color:#3282b8; 
+    color:var(--bleu-moyen); 
     text-decoration: underline;
 }
 
